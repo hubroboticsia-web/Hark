@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hubcaptureapp.com.br/sitemap.xml
