@@ -1,0 +1,121 @@
+/* Hub-style theme: deep green-black, mint accent, Archivo + DM Mono */
+:root, :root[data-theme="light"], :root[data-theme="dark"] {
+  color-scheme: dark;
+  --hub-bg: #00100f;
+  --hub-bg-2: #082014;
+  --hub-mint: #6fe8a2;
+  --hub-cream: #f5f3ec;
+  --hub-muted: #a9b8b2;
+
+  --text-primary: var(--hub-cream);
+  --text-secondary: var(--hub-muted);
+  --text-tertiary: #f5f3ec4d;
+  --text-primary-on: #00100f;
+  --text-secondary-on: #0b3a24;
+  --fill-primary: var(--hub-mint);
+  --fill-primary-on: var(--hub-bg);
+  --fill-secondary: #6fe8a280;
+  --fill-tertiary: #0c2219;
+  --fill-segment: #12352a;
+  --stroke-primary: #6fe8a238;
+  --stroke-secondary: #6fe8a21a;
+  --stroke-primary-on: #00100f1a;
+  --hover-wash: #6fe8a212;
+  --hover-wash-primary-on: #00100f14;
+
+  --hero-surface: #00100f;
+  --hero-text: #f5f3ec;
+  --hero-text-muted: #f5f3eccc;
+  --hero-scrim-strong: rgb(0 16 15 / 0.82);
+  --hero-scrim-soft: rgb(0 16 15 / 0.25);
+  --hero-scrim-side: rgb(0 16 15 / 0.55);
+  --hero-glass: rgb(0 16 15 / 0.55);
+  --hero-glass-faint: rgb(0 16 15 / 0.4);
+  --hero-glass-stroke: rgb(111 232 162 / 0.35);
+
+  --mat-regular: rgb(8 32 20 / 0.7);
+  --mat-thin: rgb(8 32 20 / 0.45);
+  --mat-agent: rgb(8 32 20 / 0.85);
+  --mat-inverse: rgb(0 16 15 / 0.82);
+  --hark-shadow: 0 8px 40px #0008;
+
+  --sans: "Archivo", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  --mono: "DM Mono", ui-monospace, monospace;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, #6fe8a21f, transparent 60%),
+    radial-gradient(900px 500px at -10% 40%, #6fe8a20f, transparent 60%),
+    var(--hub-bg);
+}
+
+h1, h2, .hero h1 {
+  font-family: "Archivo", sans-serif;
+  font-stretch: 112%;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+h2 { font-weight: 700; }
+h1 { text-shadow: 0 0 28px #6fe8a240; }
+
+.hero__eyebrow, .head__eyebrow, .hero__meta, .callout__head, .fineprint {
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+.hero__eyebrow, .head__eyebrow { color: var(--hub-mint); text-transform: uppercase; font-size: 12px; }
+
+.x-code__val { font-family: var(--mono) !important; color: var(--hub-mint) !important; }
+.x-code { background: #00100fcc !important; border-color: #6fe8a259 !important; }
+
+.btn, .x-copy {
+  background: var(--hub-mint) !important;
+  color: #00100f !important;
+  font-weight: 700;
+  box-shadow: 0 0 24px #6fe8a259;
+}
+.btn:hover, .x-copy:hover { box-shadow: 0 0 36px #6fe8a28c; opacity: 1; }
+
+.section {
+  border: 1px solid var(--stroke-secondary);
+  background: linear-gradient(180deg, #082014b3, #00100fb3);
+}
+.card, .cards > * {
+  border-color: var(--stroke-primary);
+}
+a.link { color: var(--hub-mint); }
+
+/* Robot gallery */
+.robots {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 900px) { .robots { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.robot {
+  margin: 0;
+  border-radius: var(--r-l);
+  overflow: hidden;
+  border: 1px solid var(--stroke-primary);
+  background: var(--fill-tertiary);
+}
+.robot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.robot figcaption { padding: 12px 14px 14px; font: var(--type-small); color: var(--text-secondary); }
+.robot figcaption b { display: block; color: var(--text-primary); font-family: var(--mono); font-weight: 400; margin-bottom: 4px; }
+.robot--wide { grid-column: 1 / -1; }
+.robot--wide img { aspect-ratio: 21 / 9; object-position: center 35%; }
+.credit { font: var(--type-caption); color: var(--text-secondary); margin-top: 8px; }
+
+/* Nav on dark */
+.seg { background: #0c2219; }
+.seg a { color: var(--hub-muted); }
+.seg a:hover { color: var(--hub-cream); }
+.seg a[aria-current="true"] { background: var(--hub-mint); color: #00100f; }
+.theme-btn { display: none !important; }
+.glass { border-color: #6fe8a226; }
+
+/* Hero framing for the Hubens photo */
+.hero__img { object-position: 62% 25%; }
+@media (max-width: 899px) { .hero__img { object-position: 58% 20% !important; } }
+
+.section { padding: clamp(20px, 4vw, 40px); border-radius: var(--r-xl); }
